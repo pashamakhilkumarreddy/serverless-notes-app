@@ -1,1 +1,1 @@
-# serverless-notes-app
+# Serverless Notes App using React, AWS, Node
