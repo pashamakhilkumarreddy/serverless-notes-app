@@ -1,17 +1,17 @@
 const config = {
   s3: {
-    REGION: 'us-east-1',
-    BUCKET: 'notes-app-serverless-deployment',
+    REGION: process.env.REACT_APP_REGION,
+    BUCKET: process.env.REACT_APP_BUCKET,
   },
   apiGateway: {
-    REGION: 'us-east-1',
-    URL: 'https://bcswf197jl.execute-api.us-east-1.amazonaws.com/prod',
+    REGION: process.env.REACT_APP_REGION,
+    URL: process.env.REACT_APP_URL,
   },
   cognito: {
-    REGION: 'us-east-1',
-    USER_POOL_ID: 'us-east-1_i5TP4t2gc',
-    APP_CLIENT_ID: '43r7g0ad84gkeuedd8j45stda1',
-    IDENTITY_POOL_ID: 'us-east-1:d6413b6e-77ef-45a3-b7be-0c3218525b7a',
+    REGION: process.env.REACT_APP_REGION,
+    USER_POOL_ID: process.env.REACT_APP_USER_POOL_ID,
+    APP_CLIENT_ID: process.env.REACT_APP_APP_CLIENT_ID,
+    IDENTITY_POOL_ID: process.env.REACT_APP_IDENTITY_POOL_ID,
   }
 }
 
