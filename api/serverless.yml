@@ -14,7 +14,8 @@ provider:
   stage: prod
   region: us-east-1
   environment:
-    TABLE_NAME: notes
+    TABLE_NAME: ${env:TABLE_NAME}
+    STRIPE_SECRET_KEY: ${env:STRIPE_SECRET_KEY}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -34,27 +35,49 @@ functions:
       - http:
           path: notes
           method: post
+          cors: true
+          authorizer: aws_iam
   get:
     handler: get.main
     events:
       - http:
           path: notes/${id}
           method: get
+          cors: true
+          authorizer: aws_iam
   list:
     handler: list.main
     events:
       - http:
           path: notes
           method: get
+          cors: true
+          authorizer: aws_iam
   update:
     handler: update.main
     events:
       - http:
           path: notes/{id}
           method: put
+          cors: true
+          authorizer: aws_iam
   delete:
     handler: delete.main
     events:
       - http:
           path: notes/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+  billing:
+    handler: billing.main
+    events:
+      - http:
+          path: billing
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
