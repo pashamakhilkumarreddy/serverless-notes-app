@@ -1,4 +1,5 @@
 service: api
+useDotenv: true
 
 package:
   individually: true
