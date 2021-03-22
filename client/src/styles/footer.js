@@ -4,7 +4,7 @@ const PageFooter = styled.footer`
   position: absolute;
   width: 100vw;
   padding: 1.5rem;
-  bottom: 0;
+  bottom: -6rem;
   border-top: 1px solid #ddd;
 `;
 

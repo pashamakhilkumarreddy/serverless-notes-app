@@ -1,4 +1,5 @@
-import { Component } from "react";
+import { Component } from 'react';
+import ErrorImg from '../../assets/images/Error.gif';
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(error) {
+    console.error(error);
     return {
       hasError: true,
     }
@@ -28,7 +30,11 @@ class ErrorBoundary extends Component {
 
 const Error = () => {
   return (
-    <div></div>
+    <div className='column is-11-mobile is-11-tablet is-10-desktop is-10-widescreen is-10-fullhd'>
+      <figure className='image is-square'>
+        <img src={ErrorImg} alt='Error' loading='eager' decoding='sync' />
+      </figure>
+    </div>
   )
 }
 

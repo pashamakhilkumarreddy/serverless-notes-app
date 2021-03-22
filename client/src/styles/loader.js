@@ -1,38 +1,30 @@
 import styled from 'styled-components';
 
-const PageLoader = styled.div`
+const Loader = styled.div`
   & {
     display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+    width: ${props => props.width}px;
+    height: ${props => props.width}px;
   }
-  & div {
-    position: absolute;
-    border: 4px solid #fff;
-    opacity: 1;Q
+  &:after {
+    content: ' ';
+    display: block;
+    width: ${props => props.width}px;
+    height: ${props => props.width}px;
+    margin: ${props => props.width / 5};
     border-radius: 50%;
-    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    border: 0.25rem solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
   }
-  & div:nth-child(2) {
-    animation-delay: -0.5s;
-  }
-  @keyframes lds-ripple {
+  @keyframes lds-dual-ring {
     0% {
-      top: 36px;
-      left: 36px;
-      width: 0;
-      height: 0;
-      opacity: 1;
+      transform: rotate(0deg);
     }
     100% {
-      top: 0px;
-      left: 0px;
-      width: 72px;
-      height: 72px;
-      opacity: 0;
+      transform: rotate(360deg);
     }
   }
 `;
 
-export default PageLoader;
+export default Loader;

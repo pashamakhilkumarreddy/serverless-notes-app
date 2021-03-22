@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { createBrowserHistory } from "history";
 import { Amplify } from 'aws-amplify';
 import config from './config';
 import App from './App';
@@ -10,6 +11,7 @@ import '../node_modules/bulma/css/bulma.min.css';
 import './index.css';
 
 const helmetContext = {};
+const history = createBrowserHistory();
 
 Amplify.configure({
   Auth: {
@@ -38,7 +40,7 @@ Amplify.configure({
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider context={helmetContext}>
-      <Router>
+      <Router history={history}>
         <App />
       </Router>
     </HelmetProvider>

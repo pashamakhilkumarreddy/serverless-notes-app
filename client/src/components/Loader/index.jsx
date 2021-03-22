@@ -1,12 +1,12 @@
-import { PageLoader } from '../../styles';
+import { memo } from 'react';
+import PropTypes from 'prop-types';
+import { Loader as RingLoader } from '../../styles';
 
-const Loader = () => {
-  return (
-    <PageLoader>
-      <div></div>
-      <div></div>
-    </PageLoader>
-  );
+const Loader = ({ width = 80, height = 80 }) => <RingLoader width={width} height={height} />
+
+Loader.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
 }
 
-export default Loader;
+export default memo(Loader);
