@@ -43,6 +43,7 @@
     "@aws-cdk/aws-iam": "1.94.1",
     "@aws-cdk/aws-s3": "1.94.1",
     "@aws-cdk/core": "1.94.1",
+    "@aws-cdk/region-info": "^1.94.1",
     "@serverless-stack/cli": "0.10.3",
     "@serverless-stack/resources": "0.10.3",
     "constructs": "^3.3.71"
