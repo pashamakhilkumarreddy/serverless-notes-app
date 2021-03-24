@@ -9,13 +9,17 @@ plugins:
   - serverless-offline
   - serverless-dotenv-plugin
 
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  sstApp: ${self:custom.stage}-notes-infra
+
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: prod
+  stage: dev
   region: us-east-1
   environment:
-    TABLE_NAME: ${env:TABLE_NAME}
+    TABLE_NAME: !ImportValue '${self:custom.sstApp}-TableName'
     STRIPE_SECRET_KEY: ${env:STRIPE_SECRET_KEY}
   iamRoleStatements:
     - Effect: Allow
@@ -27,7 +31,8 @@ provider:
         - 'dynamodb:UpdateItem'
         - 'dynamodb:DeleteItem'
         - 'dynamodb:DescribeTable'
-      Resource: 'arn:aws:dynamodb:us-east-1:*:*'
+      Resource: 
+        - !ImportValue '${self:custom.sstApp}-TableArn'
   
 functions:
   create:
@@ -82,3 +87,5 @@ functions:
 resources:
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
+  # Cognito Identity Pool Policy
+  - ${file(resources/cognito-policy.yml)}
