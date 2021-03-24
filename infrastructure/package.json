@@ -42,6 +42,8 @@
     "@aws-cdk/aws-cognito": "1.94.1",
     "@aws-cdk/aws-dynamodb": "1.94.1",
     "@aws-cdk/aws-iam": "1.94.1",
+    "@aws-cdk/aws-kms": "1.94.1",
+    "@aws-cdk/aws-logs": "1.94.1",
     "@aws-cdk/aws-s3": "1.94.1",
     "@aws-cdk/aws-s3-assets": "1.94.1",
     "@aws-cdk/core": "1.94.1",
