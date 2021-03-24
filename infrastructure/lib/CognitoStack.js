@@ -18,7 +18,7 @@ export default class CognitoStack extends sst.Stack {
       },
       signInAliases: {
         email: true,
-      }
+      },
     });
 
     const userPoolClient = new cognito.UserPoolClient(this, 'UserPoolClient', {
@@ -45,9 +45,9 @@ export default class CognitoStack extends sst.Stack {
         actions: ['s3:*'],
         effect: iam.Effect.ALLOW,
         resources: [
-          bucketArn + '/private/${cognito-identity.amazonaws.com:sub}/*'
+          `${bucketArn}/private/\${cognito-identity.amazonaws.com:sub}/*`,
         ],
-      })
+      }),
     );
 
     new CfnOutput(this, 'UserPoolId', {
@@ -61,11 +61,10 @@ export default class CognitoStack extends sst.Stack {
     new CfnOutput(this, 'IdentityPoolId', {
       value: identityPool.ref,
     });
-    
+
     new CfnOutput(this, 'AuthenticatedRoleName', {
       value: authenticatedRole.role.roleName,
       exportName: app.logicalPrefixedName('CognitoAuthRole'),
     });
-  
   }
 }

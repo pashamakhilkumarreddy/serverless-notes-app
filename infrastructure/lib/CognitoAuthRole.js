@@ -20,7 +20,7 @@ export default class CognitoAuthRole extends cdk.Construct {
             'cognito-identity.amazonaws.com:amr': 'authenticted',
           },
         },
-        'sts:AssumeRoleWithWebIdentity'
+        'sts:AssumeRoleWithWebIdentity',
       ),
     });
 
@@ -33,7 +33,7 @@ export default class CognitoAuthRole extends cdk.Construct {
           'cognito-identity:*',
         ],
         resources: ['*'],
-      })
+      }),
     );
 
     new cognito.CfnIdentityPoolRoleAttachment(
@@ -43,8 +43,8 @@ export default class CognitoAuthRole extends cdk.Construct {
         identityPoolId: identityPool.ref,
         roles: {
           authenticated: this.role.roleArn,
-        }
-      }
+        },
+      },
     );
   }
 }

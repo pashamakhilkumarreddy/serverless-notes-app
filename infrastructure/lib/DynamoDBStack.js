@@ -17,7 +17,7 @@ export default class DynamoDBStack extends sst.Stack {
       partitionKey: {
         name: 'userId',
         type: dynamodb.AttributeType.STRING,
-      }
+      },
     });
 
     new CfnOutput(this, 'TableName', {
