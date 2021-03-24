@@ -38,14 +38,16 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
+    "@aws-cdk/aws-cloudwatch": "^1.94.1",
     "@aws-cdk/aws-cognito": "1.94.1",
     "@aws-cdk/aws-dynamodb": "1.94.1",
     "@aws-cdk/aws-iam": "1.94.1",
     "@aws-cdk/aws-s3": "1.94.1",
     "@aws-cdk/core": "1.94.1",
-    "@aws-cdk/region-info": "^1.94.1",
+    "@aws-cdk/region-info": "1.94.1",
     "@serverless-stack/cli": "0.10.3",
     "@serverless-stack/resources": "0.10.3",
+    "aws-cdk": "^1.94.1",
     "constructs": "^3.3.71"
   }
 }
