@@ -38,6 +38,7 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
+    "@aws-cdk/assets": "^1.94.1",
     "@aws-cdk/aws-cloudwatch": "1.94.1",
     "@aws-cdk/aws-cognito": "1.94.1",
     "@aws-cdk/aws-dynamodb": "1.94.1",
