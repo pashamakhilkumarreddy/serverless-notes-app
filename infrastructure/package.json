@@ -31,6 +31,8 @@
   "homepage": "https://github.com/pashamakhilkumarreddy/serverless-notes-app-api#readme",
   "devDependencies": {
     "@aws-cdk/assert": "1.94.1",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"
@@ -41,8 +43,7 @@
     "@aws-cdk/aws-iam": "1.94.1",
     "@aws-cdk/aws-s3": "1.94.1",
     "@aws-cdk/core": "1.94.1",
-    "@serverless-stack/cli": "0.10.3",
-    "@serverless-stack/resources": "0.10.3",
-    "constructs": "^3.3.71"
+    "@serverless-stack/cli": "0.10.4",
+    "@serverless-stack/resources": "0.10.4"
   }
 }
