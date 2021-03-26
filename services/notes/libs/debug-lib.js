@@ -1,7 +1,7 @@
 import util from 'util';
 import AWS from 'aws-sdk';
 
-const logs;
+let logs;
 
 AWS.config.logger = {
   log: debug,
