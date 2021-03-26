@@ -5,7 +5,7 @@ let logs;
 
 AWS.config.logger = {
   log: debug,
-}
+};
 
 export default function debug() {
   logs.push({
